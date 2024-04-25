@@ -16,9 +16,21 @@ func _ready():
 func _process(delta):
 	if !active:
 		return
+	if Input.is_action_pressed("left_click"):
+		if cur_held_item_entity != null:
+			pass #move preview under mouse
+	if Input.is_action_just_released("left_click"):
+		if cur_held_item_entity != null:
+			if is_mouse_over_inv():
+				var inv_slot_under_mouse = find_inv_slot_under_mouse()
+				if can_item_fit(inv_slot_under_mouse, cur_held_item_entity):
+					pass
+			#if is_mouse_over_equip
+			#else: throw on ground
+			cur_held_item_entity == null
 	if Input.is_action_just_pressed("left_click"):
 		if is_mouse_over_inv():
-			print(str(find_inv_slot_under_mouse()))
+			cur_held_item_entity = inv_slots[find_inv_slot_under_mouse()]["item_entity"]
 	
 func create_inv_slots():
 	inv_grid_visual.size.y = inv_size.y * inv_cell_size
