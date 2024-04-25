@@ -5,6 +5,8 @@ extends Control
 var inv_slots : Dictionary = {}
 var inv_size = Vector2(10, 7)
 var inv_cell_size = 20
+@export var active : bool = false
+var cur_held_item_entity = null
 #y = height
 #x = length
 
@@ -12,6 +14,8 @@ func _ready():
 	create_inv_slots()
 
 func _process(delta):
+	if !active:
+		return
 	if Input.is_action_just_pressed("left_click"):
 		if is_mouse_over_inv():
 			print(str(find_inv_slot_under_mouse()))
@@ -42,7 +46,13 @@ func is_mouse_over_inv():
 		return true
 	else:
 		return false
-		
+
+func find_next_available_slot(item_entity):
+	for x in range(inv_size.x):
+		for y in range(inv_size.y):
+			if can_item_fit(Vector2(x, y), item_entity):
+				return Vector2(x, y)
+	
 func can_item_fit(inv_slot_under_mouse, item_entity):
 	for x in range(inv_slot_under_mouse.x, inv_slot_under_mouse.x +  item_entity.size.x):
 		for y in range(inv_slot_under_mouse.y, inv_slot_under_mouse.y +  item_entity.size.y):

@@ -1,12 +1,7 @@
-extends Node
+extends Control
 
-var item_variables
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+var item_id
+var item_size_x
+var item_size_y
+@export var inv_item_entity_icon : TextureRect
+@export var inv_item_entity_amount : Label
