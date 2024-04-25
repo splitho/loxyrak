@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="db_item" load_steps=3 format=3 uid="uid://b32ligdsb81gi"]
+
+[ext_resource type="Script" path="res://db_item.gd" id="1_3a3v0"]
+[ext_resource type="Texture2D" uid="uid://bt5qbujjbnufb" path="res://chest_armor_icon.png" id="1_l1s37"]
+
+[resource]
+script = ExtResource("1_3a3v0")
+item_name = "Armored Suit"
+item_icon = ExtResource("1_l1s37")
+item_size = Vector2(5, 8)

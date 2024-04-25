@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb5droatc54n7"]
+
+[ext_resource type="Script" path="res://inv_item_entity.gd" id="1_fee4c"]
+
+[node name="inv_item_entity" type="Control" node_paths=PackedStringArray("inv_item_entity_icon", "inv_item_entity_amount")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fee4c")
+inv_item_entity_icon = NodePath("inv_item_entity_icon")
+inv_item_entity_amount = NodePath("inv_item_entity_amount")
+
+[node name="inv_item_entity_icon" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 80.0
+expand_mode = 1
+
+[node name="inv_item_entity_amount" type="Label" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0

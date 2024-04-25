@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="db_item" load_steps=3 format=3 uid="uid://dhrgv0q6i6ouk"]
+
+[ext_resource type="Texture2D" uid="uid://clgk6e7y3x23i" path="res://gasmask_icon.png" id="1_mec81"]
+[ext_resource type="Script" path="res://db_item.gd" id="2_20i4h"]
+
+[resource]
+script = ExtResource("2_20i4h")
+item_name = "Gas Mask"
+item_icon = ExtResource("1_mec81")
+item_size = Vector2(4, 4)
