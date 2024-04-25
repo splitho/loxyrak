@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://6d5rjq6uyr0f"]
+
+[node name="inv_item_entity" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="inv_item_entity_icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="inv_item_entity_amount" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
