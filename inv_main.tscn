@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpub0351a6ry5" path="res://Untitled.png" id="1_nnxti"]
 [ext_resource type="PackedScene" uid="uid://cb5droatc54n7" path="res://inv_item_entity.tscn" id="2_xvqxu"]
 
-[node name="inv_main" type="Control" node_paths=PackedStringArray("inv_grid_visual", "item_entities")]
+[node name="inv_main" type="Control" node_paths=PackedStringArray("inv_grid_visual", "inv_item_entities")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_c4awm")
 inv_grid_visual = NodePath("inv_grid_visual")
 inv_item_entity_scene = ExtResource("2_xvqxu")
-item_entities = NodePath("item_entities")
+inv_item_entities = NodePath("inv_item_entities")
 
 [node name="inv_grid_visual" type="TextureRect" parent="."]
 layout_mode = 0
@@ -23,7 +23,13 @@ offset_bottom = 40.0
 texture = ExtResource("1_nnxti")
 stretch_mode = 1
 
-[node name="item_entities" type="Control" parent="."]
+[node name="inv_item_entities" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="inv_item_preview" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1

@@ -7,4 +7,4 @@
 script = ExtResource("2_20i4h")
 item_name = "Gas Mask"
 item_icon = ExtResource("1_mec81")
-item_size = Vector2(4, 4)
+item_size = Vector2(3, 3)
