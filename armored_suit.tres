@@ -7,4 +7,4 @@
 script = ExtResource("1_3a3v0")
 item_name = "Armored Suit"
 item_icon = ExtResource("1_l1s37")
-item_size = Vector2(5, 8)
+item_size = Vector2(4, 8)

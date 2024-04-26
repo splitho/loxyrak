@@ -32,6 +32,7 @@ func _process(delta):
 					pass
 			#if is_mouse_over_equip
 			#else: throw on ground
+			cur_held_item_entity.visible = true
 		cur_held_item_entity == null
 	if Input.is_action_just_pressed("left_click"):
 		if is_mouse_over_inv():
@@ -39,9 +40,11 @@ func _process(delta):
 			if item_entity_under_mouse != null:
 				cur_held_item_entity = item_entity_under_mouse
 				var inv_item_preview_instance = inv_item_preview_scene.instantiate()
-				add_child(inv_item_preview_instance)
 				inv_item_preview_instance.texture = cur_held_item_entity.inv_item_entity_icon.texture
+				inv_item_preview_instance.global_position = cur_held_item_entity.global_position
+				add_child(inv_item_preview_instance)
 				inv_item_preview_instance.size = inv_cell_size * cur_held_item_entity.item_size
+				cur_held_item_entity.visible = false
 	
 func create_inv_slots():
 	inv_grid_visual.size.y = inv_size.y * inv_cell_size
