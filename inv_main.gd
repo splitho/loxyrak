@@ -3,7 +3,7 @@ extends Control
 @export var inv_grid_visual : TextureRect
 @export var inv_item_entity_scene : PackedScene
 @export var inv_item_entities : Control
-@export var inv_item_preview : TextureRect
+@export var inv_item_preview_scene : PackedScene
 var inv_slots : Dictionary = {}
 var inv_size = Vector2(20, 20)
 var inv_cell_size = 20
@@ -23,9 +23,7 @@ func _process(delta):
 		return
 	if Input.is_action_pressed("left_click"):
 		if cur_held_item_entity != null:
-			inv_item_preview.texture = cur_held_item_entity.inv_item_entity_icon.texture
-			inv_item_preview.visible = true
-			inv_item_preview.position = get_viewport().get_mouse_position()
+			pass
 	if Input.is_action_just_released("left_click"):
 		if cur_held_item_entity != null:
 			if is_mouse_over_inv():
@@ -34,13 +32,16 @@ func _process(delta):
 					pass
 			#if is_mouse_over_equip
 			#else: throw on ground
-			cur_held_item_entity == null
-			inv_item_preview.visible = false
+		cur_held_item_entity == null
 	if Input.is_action_just_pressed("left_click"):
 		if is_mouse_over_inv():
 			var item_entity_under_mouse = is_mouse_over_item_entities()
 			if item_entity_under_mouse != null:
-				print(str(item_entity_under_mouse))
+				cur_held_item_entity = item_entity_under_mouse
+				var inv_item_preview_instance = inv_item_preview_scene.instantiate()
+				add_child(inv_item_preview_instance)
+				inv_item_preview_instance.texture = cur_held_item_entity.inv_item_entity_icon.texture
+				inv_item_preview_instance.size = inv_cell_size * cur_held_item_entity.item_size
 	
 func create_inv_slots():
 	inv_grid_visual.size.y = inv_size.y * inv_cell_size
@@ -98,6 +99,8 @@ func find_next_available_slot(item_entity):
 func can_item_fit(inv_slot_under_mouse, item_entity):
 	for x in range(inv_slot_under_mouse.x, inv_slot_under_mouse.x +  item_entity.item_size.x):
 		for y in range(inv_slot_under_mouse.y, inv_slot_under_mouse.y +  item_entity.item_size.y):
+			if !inv_slots.has(Vector2(x, y)):
+				return false
 			if inv_slots[Vector2(x, y)] != null:
 				return false		
 	return true

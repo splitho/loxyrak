@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxugunuhxaqp7"]
+[gd_scene load_steps=5 format=3 uid="uid://bxugunuhxaqp7"]
 
 [ext_resource type="Script" path="res://inv_main.gd" id="1_c4awm"]
 [ext_resource type="Texture2D" uid="uid://bpub0351a6ry5" path="res://Untitled.png" id="1_nnxti"]
 [ext_resource type="PackedScene" uid="uid://cb5droatc54n7" path="res://inv_item_entity.tscn" id="2_xvqxu"]
+[ext_resource type="PackedScene" uid="uid://i81doyj55bie" path="res://inv_item_preview.tscn" id="3_ex7cd"]
 
 [node name="inv_main" type="Control" node_paths=PackedStringArray("inv_grid_visual", "inv_item_entities")]
 layout_mode = 3
@@ -15,6 +16,7 @@ script = ExtResource("1_c4awm")
 inv_grid_visual = NodePath("inv_grid_visual")
 inv_item_entity_scene = ExtResource("2_xvqxu")
 inv_item_entities = NodePath("inv_item_entities")
+inv_item_preview_scene = ExtResource("3_ex7cd")
 
 [node name="inv_grid_visual" type="TextureRect" parent="."]
 layout_mode = 0
@@ -27,9 +29,3 @@ stretch_mode = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="inv_item_preview" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-expand_mode = 1

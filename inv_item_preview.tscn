@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://i81doyj55bie"]
+
+[ext_resource type="Script" path="res://inv_item_preview.gd" id="1_g7w1n"]
+
+[node name="inv_item_preview" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+script = ExtResource("1_g7w1n")
