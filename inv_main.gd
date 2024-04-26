@@ -41,7 +41,7 @@ func _process(delta):
 				cur_held_item_entity = item_entity_under_mouse
 				var inv_item_preview_instance = inv_item_preview_scene.instantiate()
 				inv_item_preview_instance.texture = cur_held_item_entity.inv_item_entity_icon.texture
-				inv_item_preview_instance.global_position = cur_held_item_entity.global_position
+				inv_item_preview_instance.global_position = get_global_mouse_position()
 				add_child(inv_item_preview_instance)
 				inv_item_preview_instance.size = inv_cell_size * cur_held_item_entity.item_size
 				cur_held_item_entity.visible = false
